@@ -57,7 +57,9 @@ controlando qual model usar e qual view será mostrado ao usuário.
 
 
 Modulo para Mysql:
-npm install mysql --save
+///npm install mysql --save
+npm uninstall mssql
+npm i mssql@5.1.0
 
 Instalar o body-parser:
 npm install body-parser --save

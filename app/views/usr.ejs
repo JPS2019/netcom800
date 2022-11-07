@@ -9,25 +9,44 @@
   <link rel="stylesheet" type="text/css" href="./css/w3.css">
 </head>
 <body>
-  <div class="w3-container container-margin1 container-top3">
-    <table class="w3-table-all">
-      <thead>
-        <tr class="w3-red">
-          <th>Código</th>
-          <th>Nome</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>dados</td>
-          <td>dados</td>
-        </tr>
-        <tr>
-          <td>dados</td>
-          <td>dados</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+
+  <% if (req.query.act != 'INC') { %>
+
+    <div class="w3-container container-margin1 container-top3">
+      <div>
+        <button class="w3-button w3-red" type="button" onclick="location.href='/?act=INC'">Incluir</button>
+      </div>
+      <table class="w3-table-all">
+        <thead>
+          <tr class="w3-red">
+            <th>Código</th>
+            <th>Nome</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (var x in dados) { %>
+            <tr>
+              <td><%= dados[x].USR_ID %></td>
+              <td><%= dados[x].USR_NOME %></td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+
+  <% } else { %>
+
+    <div class="w3-container container-margin1 container-top3">
+      
+      <form method="post">
+        <input type="hidden" name="act" value="GRI">
+        
+        <button class="w3-button w3-red" type="submit">Salvar</button>
+      </form>
+
+    </div>
+
+  <% } %>
+
 </body>
 </html>

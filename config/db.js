@@ -19,6 +19,7 @@ var config = {
     min: 0,
     idleTimeoutMillis: 30000
   }
+  
 }
 
 
@@ -41,7 +42,18 @@ const query = (sql, callback) => {
   });
 };
 
+// Update, Insert, Delete
+const trans = (sql, callback) => {
+  new con.ConnectionPool(config).connect().then(pool => {
+    return pool.request().query(sql)
+  }).then(result => {
+    callback({result: 'ok'});
+  }).catch(err => {
+    callback({err: 'Erro. '+err});
+  });
+};
 
 module.exports = {
-  query
+  query,
+  trans
 };

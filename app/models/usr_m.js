@@ -1,7 +1,7 @@
-var con = require('../../config/db');
+con = require('../../config/db');
 
 exports.list = function(req, rows){
-  var SQL = "SELECT *  "
+  var SQL = "SELECT USR_ID, USR_NOME "
   SQL += "FROM S800USR WHERE USR_DEL = 0 "
   SQL += "ORDER BY USR_ID"
   return con.query(SQL, rows);

@@ -2,8 +2,10 @@ module.exports = function(){
 
   const express = require('express');
   const bodyParser = require('body-parser');
+  const flash = require('connect-flash');
   const favicon = require('serve-favicon');
   const functions = require('../functions/func')();
+  const sqlbancos = require('../functions/setdbemp')();
   var process = require('process');
   require('dotenv').config();
   const app = express();
@@ -28,6 +30,8 @@ module.exports = function(){
     res.locals.url   = req.originalUrl;
     next();
   });
+  
+  app.use(flash());
 
   app.disable('x-powered-by');
 
