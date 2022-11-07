@@ -57,15 +57,14 @@ controlando qual model usar e qual view será mostrado ao usuário.
 
 
 Modulo para Mysql:
-///npm install mysql --save
-npm uninstall mssql
-npm i mssql@5.1.0
+npm install mysql --save
 
 Instalar o body-parser:
 npm install body-parser --save
 
 Para SQL SERVER:  
-npm install mssql
+npm uninstall mssql
+npm i mssql@5.1.0
 
 DotEnv:
 npm install dotenv --save
