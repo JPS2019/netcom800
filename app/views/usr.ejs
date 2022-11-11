@@ -14,7 +14,7 @@
 
     <div class="w3-container container-margin1 container-top3">
       <div>
-        <button class="w3-button w3-red" type="button" style="margin-bottom: 5px;" onclick="location.href='/?act=INC'">Incluir</button>
+        <button class="w3-button w3-red" type="button" style="margin-bottom: 5px;" onclick="location.href='/usr?act=INC'">Incluir</button>
       </div>
       <table class="w3-table-all">
         <thead>
@@ -36,11 +36,21 @@
 
   <% } else { %>
 
+    <%
+    var Acao; 
+    if (req.query.act == 'INC') {
+      Acao = 'GRI';
+    } else if (req.query.act == 'ALT') {
+      Acao = 'GRA';
+    } else if (req.query.act == 'EXC') {
+      Acao = 'GRE';
+    }
+    %>
     <div class="w3-container container-margin1 container-top3">
       
-      <form action="/" method="post">
-        <input type="hidden" name="act" value="GRI">
-        <input type="text" id="nusr" name="nusr" placeholder="Nome de usuário">
+      <form action="/usr" method="post">
+        <input type="hidden" name="act" value="<%= Acao %>">
+        <input type="text" id="USR_NOME" name="USR_NOME" placeholder="Nome de usuário">
       
         <button class="w3-button w3-red" type="submit">Salvar</button>
       </form>
@@ -48,6 +58,5 @@
     </div>
 
   <% } %>
-
 </body>
 </html>

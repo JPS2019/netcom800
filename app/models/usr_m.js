@@ -16,14 +16,14 @@ exports.insert = function(req, rows){
   SQL += "Declare @num int; "
   SQL += "Set @num = (SELECT ISNULL(MAX(USR_ID),99)+1 FROM S800USR); "
   SQL += "INSERT INTO S800USR (USR_ID, USR_NOME, USR_DEL) "
-  SQL += "VALUES (@num, '"+ req.body.NUSR +"', 0) "
+  SQL += "VALUES (@num, '"+ req.body.USR_NOME +"', 0) "
   SQL += "Commit End Try Begin Catch If @@TRANCOUNT > 0 Rollback End Catch"
   return con.query(SQL, rows);
 };
 
 exports.update = function(req, rows){
   var SQL = "UPDATE S800USR SET USR_NOME = '" + req.body.USR_NOME + "' "
-  SQL += "WHERE ID = " + req.body.USR_ID
+  SQL += "WHERE USR_ID = " + req.body.USR_ID
   return con.query(SQL, rows);
 };
 
