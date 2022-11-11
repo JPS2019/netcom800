@@ -10,9 +10,7 @@ module.exports = function(app) {
 
 
   app.post('/', function(req,res,next) {
-    var tst = req.body;
-    res.send(tst);
-    usr_c.action(req,res);
+    usr_c.action(req,res)   
   });
 
 }
