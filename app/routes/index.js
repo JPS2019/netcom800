@@ -1,4 +1,5 @@
 const usr_c = require('../controllers/usr_c');
+const { insert } = require('../models/usr_m');
 
 module.exports = function(app) {
   
@@ -9,6 +10,8 @@ module.exports = function(app) {
 
 
   app.post('/', function(req,res,next) {
+    var tst = req.body;
+    res.send(tst);
     usr_c.action(req,res);
   });
 
